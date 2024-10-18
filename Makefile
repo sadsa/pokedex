@@ -34,6 +34,14 @@ help: ## Display this help
 	@echo -e "$(BLUE)pokedex Makefile Commands:$(NC)"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(GREEN)%-30s$(NC) %s\n", $$1, $$2}'
 
+setup: ## Set up development environment
+	@echo -e "$(BLUE)Setting up development environment...$(NC)"
+	@cp .env.example .env
+	@echo -e "$(GREEN).env file created from .env.example$(NC)"
+	@$(MAKE) clone-repos
+	@$(MAKE) generate-certs
+	@echo -e "$(GREEN)Development environment setup complete$(NC)"
+
 generate-certs: clone-repos ## Generate self-signed certificates
 	@echo -e "$(BLUE)Generating self-signed certificates...$(NC)"
 	@cd ../snorlax-auth && make generate-certs
@@ -55,7 +63,7 @@ clone-repos: ## Clone required repositories
 	done
 	@echo -e "$(GREEN)Repositories cloned successfully$(NC)"
 
-up: check-env clone-repos ## Start all services
+up: check-env ## Start all services
 	@echo -e "$(BLUE)Starting services...$(NC)"
 	@mkdir -p $(BACKUP_DIR)
 	$(DOCKER_COMPOSE) up -d

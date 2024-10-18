@@ -34,10 +34,9 @@ Pokedex orchestrates the core services needed for your Pokedex application. Just
 
 ### Installation and Local Development
 
-1. **Clone the repository**:
+1. **Run setup**:
    ```bash
-   git clone git@github.com:sadsa/pokedex.git
-   cd pokedex
+   make setup
    ```
 
 2. **Set up environment variables**:
@@ -46,14 +45,7 @@ Pokedex orchestrates the core services needed for your Pokedex application. Just
    ```
    Update the values in `.env` as needed.
 
-3. **Generate Certificates**:
-   Before starting development, you need to generate self-signed certificates for local use. Run the following command:
-   ```bash
-   make generate-certs
-   ```
-   This will create a `certs` directory containing `cert.pem` and `key.pem` files.
-
-4. **Start the services**:
+3. **Start the services**:
    ```bash
    make up
    ```
@@ -62,7 +54,7 @@ Pokedex orchestrates the core services needed for your Pokedex application. Just
    - Check environment variables
    - Start all services
 
-5. **Access the services**:
+4. **Access the services**:
    - Frontend: http://localhost:4200
    - Keycloak: https://localhost:8443
 
