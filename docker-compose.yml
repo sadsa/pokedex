@@ -1,0 +1,38 @@
+services:
+  frontend:
+    build:
+      context: ../pokedex-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    networks:
+      - orchestration-network
+    depends_on:
+      - keycloak
+
+  keycloak:
+    extends:
+      file: ../snorlax-auth/docker-compose.yml
+      service: keycloak
+    networks:
+      - orchestration-network
+      - keycloak-network
+
+  postgres:
+    extends:
+      file: ../snorlax-auth/docker-compose.yml
+      service: postgres
+    networks:
+      - keycloak-network
+
+networks:
+  orchestration-network:
+    driver: bridge
+  keycloak-network:
+    external: true
+    name: snorlax-auth_keycloak-network
+
+volumes:
+  postgres_data:
+    external: true
+    name: snorlax-auth_postgres_data
