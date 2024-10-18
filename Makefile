@@ -34,7 +34,7 @@ help: ## Display this help
 	@echo -e "$(BLUE)pokedex Makefile Commands:$(NC)"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(GREEN)%-30s$(NC) %s\n", $$1, $$2}'
 
-generate-certs: ## Generate self-signed certificates
+generate-certs: clone-repos ## Generate self-signed certificates
 	@echo -e "$(BLUE)Generating self-signed certificates...$(NC)"
 	@cd ../snorlax-auth && make generate-certs
 
@@ -48,7 +48,7 @@ clone-repos: ## Clone required repositories
 	@echo -e "$(BLUE)Cloning required repositories...$(NC)"
 	@for repo in $(REPOS); do \
 		if [ ! -d "../$$repo" ]; then \
-			git clone https://github.com/your-organization/$$repo.git ../$$repo; \
+			git clone https://github.com/sadsa/$$repo.git ../$$repo; \
 		else \
 			echo -e "$(YELLOW)$$repo repository already exists$(NC)"; \
 		fi; \

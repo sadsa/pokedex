@@ -1,4 +1,4 @@
-# 🏗️ Pokedex Infrastructure
+# 🏗️ Pokedex
 
 <div align="center">
 
@@ -15,7 +15,7 @@
 
 ## 📖 Overview
 
-Pokedex Infrastructure orchestrates the core services needed for your Pokedex application. Just as Professor Oak's lab provides the foundation for a trainer's journey, this repository manages the essential components of your Pokedex ecosystem.
+Pokedex orchestrates the core services needed for your Pokedex application. Just as Professor Oak's lab provides the foundation for a trainer's journey, this repository manages the essential components of your Pokedex ecosystem.
 
 ### 🌟 Features
 
@@ -36,8 +36,8 @@ Pokedex Infrastructure orchestrates the core services needed for your Pokedex ap
 
 1. **Clone the repository**:
    ```bash
-   git clone git@github.com:your-organization/pokedex-infrastructure.git
-   cd pokedex-infrastructure
+   git clone git@github.com:sadsa/pokedex.git
+   cd pokedex
    ```
 
 2. **Set up environment variables**:
